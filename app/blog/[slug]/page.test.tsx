@@ -12,5 +12,5 @@ it("App Router: Works with dynamic route segments", () => {
 
 it("App Router: Works with dynamic route segments", async () => {
   render(<Page params={{ slug: "Test" }} />);
-  expect(await screen.findByText("Hello world")).toBeInTheDocument();
+  expect(screen.getByText("Hello world")).toBeInTheDocument();
 });
