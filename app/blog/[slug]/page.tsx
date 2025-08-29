@@ -1,18 +1,7 @@
-type Params = {
-  params: {
-    slug: string;
-  };
-};
+// page.tsx
+import PageContent from "./components/PageContent";
 
-export async function generateMetadata({ params }: Params) {
-  return { title: `Post: ${params.slug}` };
-}
-
-export default function Page({ params }: Params) {
-  return (
-    <h1>
-      Slug: {params.slug}
-      <span>Hello world</span>
-    </h1>
-  );
+export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  return <PageContent slug={slug} />;
 }
