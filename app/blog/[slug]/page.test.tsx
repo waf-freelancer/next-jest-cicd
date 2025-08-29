@@ -1,16 +1,17 @@
+// page.test.tsx
 /**
  * @jest-environment jsdom
  */
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import Page from "./page";
+import { PageContent } from "./components/PageContent";
 
 it("App Router: Works with dynamic route segments", () => {
-  render(<Page params={{ slug: "Test" }} />);
+  render(<PageContent slug="Test" />);
   expect(screen.getByRole("heading")).toHaveTextContent("Slug: Test");
 });
 
-it("App Router: Works with dynamic route segments", async () => {
-  render(<Page params={{ slug: "Test" }} />);
-  expect(await screen.findByText("Hello world")).toBeInTheDocument();
+it("App Router: Works with hello world text", () => {
+  render(<PageContent slug="Test" />);
+  expect(screen.getByText("Hello world")).toBeInTheDocument();
 });
