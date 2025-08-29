@@ -4,7 +4,7 @@
  */
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import { PageContent } from "./page";
+import { PageContent } from "./components/PageContent";
 
 it("App Router: Works with dynamic route segments", () => {
   render(<PageContent slug="Test" />);
